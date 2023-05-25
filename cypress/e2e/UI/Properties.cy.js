@@ -10,7 +10,7 @@ const timeout = 36000;
 
 describe("Add property", () => {
   beforeEach(() => {
-    cy.visit();
+    cy.visit(url);
     cy.get(loginElements.EmailInput).type(loginEmail);
     cy.get(loginElements.PasswordInput).type(loginPassword);
     cy.get(loginElements.LogingButton).click();
