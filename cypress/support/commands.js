@@ -23,3 +23,23 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("randText", (len) => {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  for (var i = 0; i < len; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  //   return text
+  cy.wrap(text).as("randText");
+});
+
+Cypress.Commands.add("randNum", (len) => {
+  var num = "";
+  var possible = "0123456789";
+
+  for (var i = 0; i < len; i++)
+    num += possible.charAt(Math.floor(Math.random() * possible.length));
+  //   return text
+  cy.wrap(num).as("randNum");
+});
